@@ -50,16 +50,16 @@ function Game(props) {
   const [xIsNext, setxIsNext] = useState(true);
 
   const handleClick = (i) => {
-    const history_sliced = history.slice(0, stepNumber + 1);
-    const current = history_sliced[history_sliced.length - 1];
+    const historySliced = history.slice(0, stepNumber + 1);
+    const current = historySliced[historySliced.length - 1];
     const squares = current.squares.slice();
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
     squares[i] = xIsNext ? "X" : "O";
-    setHistory(history_sliced.concat([{ squares: squares }]));
+    setHistory(historySliced.concat([{ squares: squares }]));
     setxIsNext(!xIsNext);
-    setStepNumber(history_sliced.length);
+    setStepNumber(historySliced.length);
   };
   const jumpTo = (step) => {
     setStepNumber(step);
